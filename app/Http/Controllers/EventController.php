@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Event;
+use Illuminate\Support\Facades\Log;
+
 
 class EventController extends Controller
 {
     public function index(){
-        $nome = "Matheus";
+   
+        $events = Event::all();
 
-        $arr = ["Ana","Julia", "Maria", "Marcos"];
-        return view('welcome', ['nome' => $nome, 'pessoas' => $arr]);
+        Log::info('Fetched events:', $events->toArray());
+        return view('welcome',['events' => $events]);
     }
 
     public function create(){
