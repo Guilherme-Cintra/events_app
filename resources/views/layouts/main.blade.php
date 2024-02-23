@@ -40,7 +40,14 @@
                 </div>
             </nav>
         </header>
-        @yield('content')
+        <main>
+             <div class="container-fluid">
+                @if(session('msg'))
+                <p class ="msg" >{{session('msg')}}</p>
+                @endif
+                @yield('content')
+             </div>
+        </main>
         <footer>
             <p>GCC Évennement &copy; 2024</p>
         </footer>
